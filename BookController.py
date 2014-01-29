@@ -2,7 +2,7 @@
 __author__ = 'Gonzalo Chacaltana Buleje'
 from  Book import Book
 from BookView import BookView
-
+import sys
 
 class BookController:
 
@@ -35,5 +35,15 @@ class BookController:
 
         self.view.show_message_created()
         self.book_main_controller()
+
+    def list_books(self):
+        list = self.getBooks()
+        self.view.list_books(list)
+        self.book_main_controller()
+
+    def getBooks(self):
+        book = Book()
+        books = book.read_all()
+        return books
 
 controller = BookController()

@@ -19,3 +19,8 @@ class Book:
         values = (self.id_category, self.title, self.price)
         self.db.execute(query, values)
         self.db.commit(query)
+
+    def read_all(self):
+        query = "SELECT id_book,id_category,name FROM books;"
+        self.db.execute(query)
+        return self.db.get_fetch_rows()

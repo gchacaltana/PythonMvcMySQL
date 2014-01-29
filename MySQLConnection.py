@@ -39,6 +39,7 @@ class MySQLConnection:
     def get_fetch_rows(self):
         """returning data"""
         self.rows = self.cursor.fetchall()
+        return self.rows
 
     def commit(self, query):
         """commit sql statement"""
